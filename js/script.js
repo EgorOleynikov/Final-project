@@ -10,7 +10,7 @@ const calculateButtons = () => {
     var filledAndValidated = 0;
     var filled = 0;
     for(var i = 0; i < numeric.length; i++) {
-        if ((numeric[i].value !== '') & (numeric[i].value > 0) & (isNaN(numeric[i].value) === false)) {
+        if ((numeric[i].value !== '') && (numeric[i].value > 0) && (isNaN(numeric[i].value) === false)) {
             filledAndValidated += 1;
         }
         if (numeric[i].value.length > 0) {
@@ -45,7 +45,7 @@ const activityCheck = () => {
 
 calculateButton.onclick = function() {
     var weightMaintaining = Math.round(((6.25*numeric[1].value) + (10*numeric[2].value) - (5*numeric[0].value) + genderCheck()) * activityCheck());
-    if (weightMaintaining <= 0) {
+    if (weightMaintaining <= 0 || isNaN(weightMaintaining)) {
         weightMaintaining = 0;
     }
     const diff15 = Math.round(weightMaintaining/100*15);
